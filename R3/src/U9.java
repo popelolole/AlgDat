@@ -36,9 +36,18 @@ public class U9 {
                 output[--count[(int) (v[i]%pow(10,d)/pow(10,d-1))]] = v[i];
             }
             System.arraycopy(output, 0, v, 0, v.length);
-            output = new int[v.length];
             count = new int[10];
         }
+    }
+
+    private static int noOfDigits(int[] v){
+        int max = v[0];
+        for(int a : v){
+            if(a > max)
+                max = a;
+        }
+        String i = String.valueOf(max);
+        return i.length();
     }
 
     private static boolean checkSorted(int v[]){
@@ -53,16 +62,6 @@ public class U9 {
         }
         System.out.println("Sorting Successful.");
         return true;
-    }
-
-    private static int noOfDigits(int[] v){
-        int max = v[0];
-        for(int a : v){
-            if(a > max)
-                max = a;
-        }
-        String i = String.valueOf(max);
-        return i.length();
     }
 
     private static void empirical(){

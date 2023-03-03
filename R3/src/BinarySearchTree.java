@@ -21,6 +21,11 @@ public class BinarySearchTree<E extends Comparable<E>> {
         root = null;
     }
 
+    static void buildTree(BinarySearchTree<Integer> b, int[] v){
+        for(int data : v)
+            b.add(data);
+    }
+
     public E find(E target){
         return find(target, root);
     }

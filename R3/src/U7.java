@@ -6,14 +6,17 @@ import java.util.Scanner;
 public class U7 {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        System.out.print("Choose grey square coordinates (row,col): ");
-        String input = scan.nextLine();
-        String[] sarr = input.split(",");
-        int row = Integer.parseInt(sarr[0]);
-        int col = Integer.parseInt(sarr[1]);
+        while(true) {
+            System.out.print("Choose grey square coordinates (row,col): ");
+            String input = scan.nextLine();
+            if(input == "")
+                break;
+            String[] sarr = input.split(",");
+            int row = Integer.parseInt(sarr[0]);
+            int col = Integer.parseInt(sarr[1]);
 
-        System.out.println(puzzle(row, col));
-        System.out.println("hej");
+            System.out.println(puzzle(row, col));
+        }
     }
 
     public static int puzzle(int row, int col){
@@ -27,8 +30,6 @@ public class U7 {
 
         Tillstand t = new Tillstand(grid, 0, 0, 1);
         q.offer(t);
-
-        //System.out.println(Arrays.deepToString(grid));
 
         int count = 0;
         while(!q.isEmpty()){
@@ -97,7 +98,7 @@ public class U7 {
                 }
             }
             q.offer(new Tillstand(copy(t.grid), t.row, t.col + 1, t.pieceNr));
-            System.out.println(Arrays.deepToString(t.grid));
+            //System.out.println(Arrays.deepToString(t.grid));
         }
 
         return count;
