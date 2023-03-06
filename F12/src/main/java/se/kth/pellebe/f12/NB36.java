@@ -1,3 +1,5 @@
+package se.kth.pellebe.f12;
+
 import java.sql.Time;
 import java.util.Arrays;
 import java.util.Scanner;

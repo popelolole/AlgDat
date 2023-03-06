@@ -1,3 +1,5 @@
+package se.kth.pellebe.f12;
+
 import java.util.Arrays;
 
 public class NB34 {

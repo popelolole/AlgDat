@@ -1,3 +1,5 @@
+package se.kth.pellebe.f12;
+
 import java.util.Scanner;
 
 import static java.lang.Math.pow;
