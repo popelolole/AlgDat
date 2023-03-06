@@ -65,7 +65,7 @@ public class NB35 {
         }
     }
 
-    public static void radixSort(Item[] v){
+    private static void radixSort(Item[] v){
         int[] count = new int[10];
         Item[] output = new Item[v.length];
         for(int d = -2;d <= 1;d++) {
