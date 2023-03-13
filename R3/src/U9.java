@@ -2,7 +2,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 import static java.lang.Integer.MAX_VALUE;
-import static java.lang.Math.pow;
 
 public class U9 {
     public static void main(String[] args){
@@ -17,6 +16,7 @@ public class U9 {
         radixSort(v);
         long stopTime = System.currentTimeMillis();
         long elapsedTime = stopTime - startTime;
+        System.out.println(Arrays.toString(v));
 
         checkSorted(v);
         System.out.println("Time elapsed: " + elapsedTime + " ms");
@@ -25,18 +25,20 @@ public class U9 {
     public static void radixSort(int[] v){
         int digits = noOfDigits(v);
         int[] count = new int[10], output = new int[v.length];
+        long t = 10;
         for(int d = 1;d <= digits;d++) {
             for (int i = 0; i < v.length; i++) {
-                count[(int) (v[i]%pow(10,d)/pow(10,d-1))]++;
+                count[(int) (v[i]%t/(t/10))]++;
             }
             for(int i = 0;i < count.length - 1;i++){
                 count[i+1] = count[i] + count[i+1];
             }
             for(int i = v.length - 1;i >= 0;i--){
-                output[--count[(int) (v[i]%pow(10,d)/pow(10,d-1))]] = v[i];
+                output[--count[(int) (v[i]%t/(t/10))]] = v[i];
             }
             System.arraycopy(output, 0, v, 0, v.length);
             count = new int[10];
+            t *= 10;
         }
     }
 
