@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class heapsort {
     public static void main(String[] args){
-        int[] a = {1, 4, 2, 7, 3};
+        int[] a = {1, 15, 4, 2, 7, 3, 6, 9, 8, 10};
         heapSort(a);
         System.out.println(Arrays.toString(a));
     }
@@ -20,9 +20,8 @@ public class heapsort {
     private static void buildHeap(int[] a){
         int heapSize = 1;
         while(heapSize < a.length) {
-            heapSize++;
-            int child = heapSize - 1;
-            int parent = (heapSize - 1) / 2;
+            int child = heapSize;
+            int parent = (child - 1) / 2;
             while (parent >= 0 && a[child] > a[parent]) {
                 int tmp = a[parent];
                 a[parent] = a[child];
@@ -30,6 +29,7 @@ public class heapsort {
                 child = parent;
                 parent = (child - 1) / 2;
             }
+            heapSize++;
         }
     }
 
